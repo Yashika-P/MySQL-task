@@ -1,0 +1,53 @@
+	#	Time	Action	Message	Duration / Fetch
+3	1	20:30:42	CREATE DATABASE ecommerce	1 row(s) affected	0.000 sec
+3	2	20:30:42	use ecommerce	0 row(s) affected	0.000 sec
+3	3	20:30:42	CREATE TABLE customers(customer_id INT PRIMARY KEY auto_increment,
+ first_name VARCHAR(50),
+ email VARCHAR(100),
+ address VARCHAR(100)
+ ) ENGINE = InnoDB	0 row(s) affected	0.016 sec
+0	4	20:30:42	INSERT INTO customers (customer_id,first_name,last_name,email,address) VALUES(NULL,"kalai","kalai118@gmail.com","no:13 gopal nayakar street")	Error Code: 1054. Unknown column 'last_name' in 'field list'	0.000 sec
+3	5	20:31:02	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"kalai","kalai118@gmail.com","no:13 gopal nayakar street")	1 row(s) affected	0.015 sec
+3	6	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"nalinkumar","nalinkumar90@gmail.com","no:12 kamarajar street")	1 row(s) affected	0.000 sec
+3	7	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"yashika","yashika116@gmail.com","no:10 ksp mahal street")	1 row(s) affected	0.016 sec
+3	8	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"nivetha","nivetha78@gmail.com","no:23 rajastreet")	1 row(s) affected	0.000 sec
+3	9	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"alfertregan","alfertregan78@gmail.com","no:54 church street")	1 row(s) affected	0.000 sec
+3	10	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"harini","harini092gmail.com","no:108 school road")	1 row(s) affected	0.000 sec
+3	11	20:37:15	INSERT INTO customers (customer_id,first_name,email,address) VALUES(NULL,"akaash","akaash09@gmail.com","no;18 thiruvika street")	1 row(s) affected	0.015 sec
+3	12	20:40:40	SELECT * FROM customers
+ LIMIT 0, 1000	7 row(s) returned	0.000 sec / 0.000 sec
+3	13	20:53:56	CREATE TABLE products (product_id INT PRIMARY KEY,
+ product_name VARCHAR(100),
+ product_description VARCHAR(300),
+ price DECIMAL(10,2)
+ ) ENGINE = InnoDB	0 row(s) affected	0.015 sec
+3	14	20:54:05	INSERT INTO products (product_id,product_name,product_description,price) VALUES("101","lipstick","this is from nyka products","200")	1 row(s) affected	0.000 sec
+3	15	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("102","foundataion","A foundation is a liquid, cream, or powder makeup applied to the face to make the user’s complexion even and to cover flaws.","250")	1 row(s) affected	0.016 sec
+3	16	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("103","shampoo","These shampoos are devoid of chemicals, parabens, and fragrances","350")	1 row(s) affected	0.000 sec
+3	17	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("104","eyeprotector","multifunctional eye cream brightens dark spots while also providing SPF 30 protection against sun damage","440")	1 row(s) affected	0.015 sec
+3	18	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("105","moisturizer","This moisturizer composes of hyaluronic acid and glycerin to help the skin look young and hydrated","500")	1 row(s) affected	0.000 sec
+3	19	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("106","cleanser","Our cleansers are appropriate for every skin tone and remove the bacteria, pollutants, and dirt sticking on the skin","350")	1 row(s) affected	0.000 sec
+3	20	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("107","exfoliator","Helps with skin cell turnover","700")	1 row(s) affected	0.000 sec
+3	21	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("108","face serum","Concentrated solution with active ingredients","560")	1 row(s) affected	0.000 sec
+3	22	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("109","face oil","Hydrates and nourishes the skin","200")	1 row(s) affected	0.016 sec
+3	23	21:11:23	INSERT INTO products (product_id,product_name,product_description,price) VALUES("110","sunscreen","Protects against UV damage","150")	1 row(s) affected	0.000 sec
+3	24	21:12:02	SELECT * FROM products
+ LIMIT 0, 1000	10 row(s) returned	0.000 sec / 0.000 sec
+3	25	21:16:31	CREATE TABLE orders (order_id INT PRIMARY KEY,
+ customer_id INT,
+ order_date DATETIME,
+ total_amount DECIMAL(10,2),
+ FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+ ) ENGINE = InnoDB	0 row(s) affected	0.032 sec
+ 3	39	10:33:11	SELECT * FROM orders
+ LIMIT 0, 1000	7 row(s) returned	0.000 sec / 0.000 sec
+3	40	10:34:40	SELECT * FROM customers
+ LIMIT 0, 1000	7 row(s) returned	0.000 sec / 0.000 sec
+3	41	10:45:04	SELECT * FROM products LIMIT 5	5 row(s) returned	0.000 sec / 0.000 sec
+3	42	10:52:27	SELECT orders.order_id, customers.customer_name, orders.order_date
+ FROM orders
+ INNER JOIN customers ON orders.customer_id=customers.customer_id
+ LIMIT 0, 1000	7 row(s) returned	0.015 sec / 0.000 sec
+3	43	10:54:25	SELECT AVG(Price)
+ FROM Products
+ LIMIT 0, 1000	1 row(s) returned	0.000 sec / 0.000 sec
